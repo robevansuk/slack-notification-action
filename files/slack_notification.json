@@ -1,0 +1,18 @@
+{
+	'text': '$GITHUB_REPOSITORY',
+	'blocks': [
+		{
+			'type': 'section',
+			'block_id': 'section1',
+			'text': {
+				'type': 'mrkdwn',
+				'text': '$INPUT_SLACK_STATUS_EMOJI<$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID|$GITHUB_REPOSITORY>$INPUT_SLACK_STATUS_EMOJI\nBranch: <$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$GITHUB_REF_NAME|$GITHUB_REF_NAME>\nBuild: #$GITHUB_RUN_NUMBER\nBy: $GITHUB_ACTOR\n<$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$GITHUB_SHA|commit>',
+			},
+			'accessory': {
+				'type': 'image',
+				'image_url': '$INPUT_DISPLAY_IMAGE_URL',
+				'alt_text': '$INPUT_JOB_STATUS'
+			}
+		}
+	]
+}

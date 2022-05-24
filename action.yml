@@ -1,0 +1,16 @@
+name: 'Slack Notification Action'
+author: robevansuk
+description: 'publishes a notification to a slack webhook'
+inputs:
+  slack_webhook: # id of input
+    description: 'Webhook to post notification to'
+    required: true
+  job_status: # id of input
+    description: 'the success status of the job in the pipeline'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.slack_webhook }}
+    - ${{ inputs.job_status }}
